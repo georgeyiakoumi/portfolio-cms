@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "portfolio_entries",
+  "info": {
+    "singularName": "portfolio-entry",
+    "pluralName": "portfolio-entries",
+    "displayName": "Portfolio Entry",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Title",
+      "required": true
+    },
+    "Thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Category": {
+      "type": "string"
+    },
+    "Date": {
+      "type": "date"
+    },
+    "Tags": {
+      "type": "customField",
+      "customField": "plugin::tagsinput.tags"
+    },
+    "Content": {
+      "type": "dynamiczone",
+      "components": [
+        "portfolio.slider-block",
+        "portfolio.rich-text-block"
+      ]
+    }
+  }
+}
