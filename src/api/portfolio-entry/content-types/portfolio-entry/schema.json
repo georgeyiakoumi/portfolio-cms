@@ -59,6 +59,9 @@
         "portfolio.slider-block",
         "portfolio.rich-text-block"
       ]
+    },
+    "Description": {
+      "type": "text"
     }
   }
 }
