@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tools",
+  "info": {
+    "singularName": "tool",
+    "pluralName": "tools",
+    "displayName": "Tool"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "required": true
+    },
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "Development",
+        "Backend",
+        "Hosting"
+      ]
+    },
+    "Paid": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "Logo": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
