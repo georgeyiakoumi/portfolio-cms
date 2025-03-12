@@ -21,7 +21,7 @@
     "url": {
       "type": "string"
     },
-    "arialLabel": {
+    "ariaLabel": {
       "type": "string"
     }
   }

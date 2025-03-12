@@ -3,10 +3,11 @@ import type { Schema, Struct } from '@strapi/strapi';
 export interface AboutBusiness extends Struct.ComponentSchema {
   collectionName: 'components_about_businesses';
   info: {
+    description: '';
     displayName: 'business';
   };
   attributes: {
-    arialLabel: Schema.Attribute.String;
+    ariaLabel: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images' | 'files'>;
     imageWidth: Schema.Attribute.Decimal;
     name: Schema.Attribute.String;
@@ -51,7 +52,7 @@ export interface NavlinkSocialLink extends Struct.ComponentSchema {
     displayName: 'SocialLink';
   };
   attributes: {
-    arialLabel: Schema.Attribute.String;
+    ariaLabel: Schema.Attribute.String;
     Icon: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     name: Schema.Attribute.String;
