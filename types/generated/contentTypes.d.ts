@@ -447,7 +447,7 @@ export interface ApiDetailPageDetailPage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Tools: Schema.Attribute.Component<'detail.tool', true>;
+    tools: Schema.Attribute.Component<'detail.tool', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

@@ -15,7 +15,7 @@
     "content": {
       "type": "blocks"
     },
-    "Tools": {
+    "tools": {
       "type": "component",
       "repeatable": true,
       "component": "detail.tool"
