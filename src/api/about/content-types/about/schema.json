@@ -14,6 +14,11 @@
   "attributes": {
     "content": {
       "type": "blocks"
+    },
+    "businesses": {
+      "type": "component",
+      "repeatable": true,
+      "component": "about.business"
     }
   }
 }

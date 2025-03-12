@@ -381,6 +381,7 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    businesses: Schema.Attribute.Component<'about.business', true>;
     content: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -395,26 +396,25 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiBusinessBusiness extends Struct.CollectionTypeSchema {
-  collectionName: 'businesses';
+export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
+  collectionName: 'contact_pages';
   info: {
-    displayName: 'Business';
-    pluralName: 'businesses';
-    singularName: 'business';
+    displayName: 'contactPage';
+    pluralName: 'contact-pages';
+    singularName: 'contact-page';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    altText: Schema.Attribute.String;
+    content: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Image: Schema.Attribute.Media<'files' | 'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::business.business'
+      'api::contact-page.contact-page'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -427,6 +427,7 @@ export interface ApiBusinessBusiness extends Struct.CollectionTypeSchema {
 export interface ApiDetailPageDetailPage extends Struct.SingleTypeSchema {
   collectionName: 'detail_pages';
   info: {
+    description: '';
     displayName: 'detailPage';
     pluralName: 'detail-pages';
     singularName: 'detail-page';
@@ -446,6 +447,7 @@ export interface ApiDetailPageDetailPage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    Tools: Schema.Attribute.Component<'detail.tool', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -494,6 +496,7 @@ export interface ApiGlobalSeoGlobalSeo extends Struct.SingleTypeSchema {
 export interface ApiNavigationNavigation extends Struct.SingleTypeSchema {
   collectionName: 'navigations';
   info: {
+    description: '';
     displayName: 'navigation';
     pluralName: 'navigations';
     singularName: 'navigation';
@@ -513,6 +516,7 @@ export interface ApiNavigationNavigation extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     NavLinks: Schema.Attribute.Component<'navlink.nav-link', true>;
     publishedAt: Schema.Attribute.DateTime;
+    SocialLinks: Schema.Attribute.Component<'navlink.social-link', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -563,62 +567,27 @@ export interface ApiPortfolioEntryPortfolioEntry
   };
 }
 
-export interface ApiSocialLinkSocialLink extends Struct.CollectionTypeSchema {
-  collectionName: 'social_links';
+export interface ApiPortfolioPagePortfolioPage extends Struct.SingleTypeSchema {
+  collectionName: 'portfolio_pages';
   info: {
-    displayName: 'Social Link';
-    pluralName: 'social-links';
-    singularName: 'social-link';
+    displayName: 'portfolioPage';
+    pluralName: 'portfolio-pages';
+    singularName: 'portfolio-page';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+    content: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    icon: Schema.Attribute.Media<'images' | 'files'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::social-link.social-link'
+      'api::portfolio-page.portfolio-page'
     > &
       Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    url: Schema.Attribute.String;
-  };
-}
-
-export interface ApiToolTool extends Struct.CollectionTypeSchema {
-  collectionName: 'tools';
-  info: {
-    displayName: 'Tool';
-    pluralName: 'tools';
-    singularName: 'tool';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Category: Schema.Attribute.Enumeration<
-      ['Development', 'Backend', 'Hosting']
-    >;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Description: Schema.Attribute.Text & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::tool.tool'> &
-      Schema.Attribute.Private;
-    Logo: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
-    Name: Schema.Attribute.String & Schema.Attribute.Required;
-    Paid: Schema.Attribute.Boolean &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<true>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1136,13 +1105,12 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
-      'api::business.business': ApiBusinessBusiness;
+      'api::contact-page.contact-page': ApiContactPageContactPage;
       'api::detail-page.detail-page': ApiDetailPageDetailPage;
       'api::global-seo.global-seo': ApiGlobalSeoGlobalSeo;
       'api::navigation.navigation': ApiNavigationNavigation;
       'api::portfolio-entry.portfolio-entry': ApiPortfolioEntryPortfolioEntry;
-      'api::social-link.social-link': ApiSocialLinkSocialLink;
-      'api::tool.tool': ApiToolTool;
+      'api::portfolio-page.portfolio-page': ApiPortfolioPagePortfolioPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

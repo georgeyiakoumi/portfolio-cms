@@ -4,7 +4,8 @@
   "info": {
     "singularName": "detail-page",
     "pluralName": "detail-pages",
-    "displayName": "detailPage"
+    "displayName": "detailPage",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,11 @@
   "attributes": {
     "content": {
       "type": "blocks"
+    },
+    "Tools": {
+      "type": "component",
+      "repeatable": true,
+      "component": "detail.tool"
     }
   }
 }

@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_about_businesses",
+  "info": {
+    "displayName": "business"
+  },
+  "options": {},
+  "attributes": {
+    "arialLabel": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "name": {
+      "type": "string"
+    },
+    "imageWidth": {
+      "type": "decimal"
+    }
+  }
+}

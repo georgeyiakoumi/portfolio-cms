@@ -8,8 +8,14 @@ module.exports = ({ env }) => ({
           api_secret: env("CLOUDINARY_API_SECRET"),
         },
         actionOptions: {
-          upload: {},
-          delete: {},
+          upload: async (file) => {
+            // Automatically set folder based on Strapi model type
+            if (file.related && file.related.length > 0) {
+              const modelName = file.related[0].collectionName;
+              return { folder: `website/${modelName}` };
+            }
+            return { folder: "website/general" }; // Default fallback
+          },
         },
       },
     },
