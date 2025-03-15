@@ -11,6 +11,9 @@
     },
     "url": {
       "type": "string"
+    },
+    "isHomepage": {
+      "type": "boolean"
     }
   }
 }
