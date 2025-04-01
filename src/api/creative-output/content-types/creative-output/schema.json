@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "creative_outputs",
+  "info": {
+    "singularName": "creative-output",
+    "pluralName": "creative-outputs",
+    "displayName": "Creative Output"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Title",
+      "required": true
+    },
+    "Thumbnail": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Banner": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Date": {
+      "type": "date"
+    },
+    "Tags": {
+      "type": "customField",
+      "customField": "plugin::tagsinput.tags"
+    },
+    "Content": {
+      "type": "dynamiczone",
+      "components": [
+        "portfolio.slider-block",
+        "portfolio.rich-text-block"
+      ]
+    },
+    "Description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

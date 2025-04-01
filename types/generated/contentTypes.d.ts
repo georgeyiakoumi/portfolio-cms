@@ -424,6 +424,48 @@ export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiCreativeOutputCreativeOutput
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'creative_outputs';
+  info: {
+    displayName: 'Creative Output';
+    pluralName: 'creative-outputs';
+    singularName: 'creative-output';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Banner: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Content: Schema.Attribute.DynamicZone<
+      ['portfolio.slider-block', 'portfolio.rich-text-block']
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.Date;
+    Description: Schema.Attribute.Text & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::creative-output.creative-output'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
+    Tags: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<'plugin::tagsinput.tags'>;
+    Thumbnail: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.Required;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiDetailPageDetailPage extends Struct.SingleTypeSchema {
   collectionName: 'detail_pages';
   info: {
@@ -589,6 +631,47 @@ export interface ApiPortfolioPagePortfolioPage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProjectProject extends Struct.CollectionTypeSchema {
+  collectionName: 'projects';
+  info: {
+    displayName: 'Project';
+    pluralName: 'projects';
+    singularName: 'project';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Banner: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Content: Schema.Attribute.DynamicZone<
+      ['portfolio.slider-block', 'portfolio.rich-text-block']
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.Date;
+    Description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::project.project'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
+    Tags: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<'plugin::tagsinput.tags'>;
+    Thumbnail: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.Required;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1106,11 +1189,13 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::contact-page.contact-page': ApiContactPageContactPage;
+      'api::creative-output.creative-output': ApiCreativeOutputCreativeOutput;
       'api::detail-page.detail-page': ApiDetailPageDetailPage;
       'api::global-seo.global-seo': ApiGlobalSeoGlobalSeo;
       'api::navigation.navigation': ApiNavigationNavigation;
       'api::portfolio-entry.portfolio-entry': ApiPortfolioEntryPortfolioEntry;
       'api::portfolio-page.portfolio-page': ApiPortfolioPagePortfolioPage;
+      'api::project.project': ApiProjectProject;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
