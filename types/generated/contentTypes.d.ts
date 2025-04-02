@@ -566,50 +566,6 @@ export interface ApiNavigationNavigation extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiPortfolioEntryPortfolioEntry
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'portfolio_entries';
-  info: {
-    description: '';
-    displayName: 'Portfolio Entry';
-    pluralName: 'portfolio-entries';
-    singularName: 'portfolio-entry';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Banner: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    Category: Schema.Attribute.String;
-    Content: Schema.Attribute.DynamicZone<
-      ['portfolio.slider-block', 'portfolio.rich-text-block']
-    >;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Date: Schema.Attribute.Date;
-    Description: Schema.Attribute.Text;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::portfolio-entry.portfolio-entry'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
-    Tags: Schema.Attribute.JSON &
-      Schema.Attribute.CustomField<'plugin::tagsinput.tags'>;
-    Thumbnail: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    > &
-      Schema.Attribute.Required;
-    Title: Schema.Attribute.String & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiPortfolioPagePortfolioPage extends Struct.SingleTypeSchema {
   collectionName: 'portfolio_pages';
   info: {
@@ -1194,7 +1150,6 @@ declare module '@strapi/strapi' {
       'api::detail-page.detail-page': ApiDetailPageDetailPage;
       'api::global-seo.global-seo': ApiGlobalSeoGlobalSeo;
       'api::navigation.navigation': ApiNavigationNavigation;
-      'api::portfolio-entry.portfolio-entry': ApiPortfolioEntryPortfolioEntry;
       'api::portfolio-page.portfolio-page': ApiPortfolioPagePortfolioPage;
       'api::project.project': ApiProjectProject;
       'plugin::content-releases.release': PluginContentReleasesRelease;
