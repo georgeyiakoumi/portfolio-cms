@@ -4,7 +4,8 @@
   "info": {
     "singularName": "creative-output",
     "pluralName": "creative-outputs",
-    "displayName": "Creative Output"
+    "displayName": "Creative Output",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,31 +16,32 @@
       "type": "string",
       "required": true
     },
-    "Slug": {
+    "slug": {
       "type": "uid",
       "targetField": "Title",
       "required": true
     },
     "Thumbnail": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
-    },
-    "Banner": {
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
+      ]
+    },
+    "Banner": {
       "type": "media",
-      "multiple": false
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     },
     "Date": {
       "type": "date"

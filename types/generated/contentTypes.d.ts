@@ -428,6 +428,7 @@ export interface ApiCreativeOutputCreativeOutput
   extends Struct.CollectionTypeSchema {
   collectionName: 'creative_outputs';
   info: {
+    description: '';
     displayName: 'Creative Output';
     pluralName: 'creative-outputs';
     singularName: 'creative-output';
@@ -452,7 +453,7 @@ export interface ApiCreativeOutputCreativeOutput
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
+    slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
     Tags: Schema.Attribute.JSON &
       Schema.Attribute.CustomField<'plugin::tagsinput.tags'>;
     Thumbnail: Schema.Attribute.Media<
