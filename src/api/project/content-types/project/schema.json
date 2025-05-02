@@ -4,7 +4,8 @@
   "info": {
     "singularName": "project",
     "pluralName": "projects",
-    "displayName": "Project"
+    "displayName": "Project",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,25 +22,26 @@
       "required": true
     },
     "Thumbnail": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
-    },
-    "Banner": {
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
+      ]
+    },
+    "Banner": {
       "type": "media",
-      "multiple": false
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     },
     "Date": {
       "type": "date"
@@ -57,6 +59,31 @@
     },
     "Description": {
       "type": "text"
+    },
+    "Challenge": {
+      "type": "component",
+      "repeatable": false,
+      "component": "project-chapter.project-chapter"
+    },
+    "Solution": {
+      "type": "component",
+      "repeatable": false,
+      "component": "project-chapter.project-chapter"
+    },
+    "Role": {
+      "type": "component",
+      "repeatable": false,
+      "component": "project-chapter.project-chapter"
+    },
+    "Impact": {
+      "type": "component",
+      "repeatable": false,
+      "component": "project-chapter.project-chapter"
+    },
+    "Takeaway": {
+      "type": "component",
+      "repeatable": false,
+      "component": "project-chapter.project-chapter"
     }
   }
 }

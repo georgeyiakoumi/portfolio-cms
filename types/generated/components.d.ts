@@ -88,6 +88,20 @@ export interface PortfolioSliderBlock extends Struct.ComponentSchema {
   };
 }
 
+export interface ProjectChapterProjectChapter extends Struct.ComponentSchema {
+  collectionName: 'components_project_chapter_project_chapters';
+  info: {
+    displayName: 'Project Chapter';
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    SupportingMedia: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -97,6 +111,7 @@ declare module '@strapi/strapi' {
       'navlink.social-link': NavlinkSocialLink;
       'portfolio.rich-text-block': PortfolioRichTextBlock;
       'portfolio.slider-block': PortfolioSliderBlock;
+      'project-chapter.project-chapter': ProjectChapterProjectChapter;
     }
   }
 }

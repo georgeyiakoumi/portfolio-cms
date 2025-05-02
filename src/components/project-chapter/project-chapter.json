@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_project_chapter_project_chapters",
+  "info": {
+    "displayName": "Project Chapter"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "blocks",
+      "required": true
+    },
+    "SupportingMedia": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

@@ -597,6 +597,7 @@ export interface ApiPortfolioPagePortfolioPage extends Struct.SingleTypeSchema {
 export interface ApiProjectProject extends Struct.CollectionTypeSchema {
   collectionName: 'projects';
   info: {
+    description: '';
     displayName: 'Project';
     pluralName: 'projects';
     singularName: 'project';
@@ -606,6 +607,10 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
   };
   attributes: {
     Banner: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Challenge: Schema.Attribute.Component<
+      'project-chapter.project-chapter',
+      false
+    >;
     Content: Schema.Attribute.DynamicZone<
       ['portfolio.slider-block', 'portfolio.rich-text-block']
     >;
@@ -614,6 +619,10 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     Date: Schema.Attribute.Date;
     Description: Schema.Attribute.Text;
+    Impact: Schema.Attribute.Component<
+      'project-chapter.project-chapter',
+      false
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -621,9 +630,18 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    Role: Schema.Attribute.Component<'project-chapter.project-chapter', false>;
     slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
+    Solution: Schema.Attribute.Component<
+      'project-chapter.project-chapter',
+      false
+    >;
     Tags: Schema.Attribute.JSON &
       Schema.Attribute.CustomField<'plugin::tagsinput.tags'>;
+    Takeaway: Schema.Attribute.Component<
+      'project-chapter.project-chapter',
+      false
+    >;
     Thumbnail: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     > &
