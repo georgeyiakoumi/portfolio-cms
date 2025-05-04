@@ -91,14 +91,12 @@ export interface PortfolioSliderBlock extends Struct.ComponentSchema {
 export interface ProjectChapterProjectChapter extends Struct.ComponentSchema {
   collectionName: 'components_project_chapter_project_chapters';
   info: {
+    description: '';
     displayName: 'Project Chapter';
   };
   attributes: {
     content: Schema.Attribute.Blocks & Schema.Attribute.Required;
-    SupportingMedia: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    Image: Schema.Attribute.Media<'images' | 'files'>;
   };
 }
 
