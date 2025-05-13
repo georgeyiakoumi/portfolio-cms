@@ -17,7 +17,12 @@ export default [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['http://localhost:8888', 'https://georgeyiakoumi.com'], 
+      origin: [
+        'http://localhost:8888',
+        'http://localhost:3000', // ✅ Add this
+        'https://georgeyiakoumi.com'
+      ],
+
       headers: ['Content-Type', 'Authorization'],
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
       credentials: true,
