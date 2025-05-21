@@ -18,9 +18,9 @@ export default [
     name: 'strapi::cors',
     config: {
       origin: [
-        'http://localhost:8888',
-        'http://localhost:3000', // ✅ Add this
-        'https://georgeyiakoumi.com'
+        'http://localhost:8888', //Netlify
+        'http://localhost:3000', //React
+        'https://georgeyiakoumi.com' //Live
       ],
 
       headers: ['Content-Type', 'Authorization'],

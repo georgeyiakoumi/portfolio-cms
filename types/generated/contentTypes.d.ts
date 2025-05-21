@@ -569,6 +569,7 @@ export interface ApiNavigationNavigation extends Struct.SingleTypeSchema {
 export interface ApiPortfolioPagePortfolioPage extends Struct.SingleTypeSchema {
   collectionName: 'portfolio_pages';
   info: {
+    description: '';
     displayName: 'portfolioPage';
     pluralName: 'portfolio-pages';
     singularName: 'portfolio-page';
@@ -577,7 +578,6 @@ export interface ApiPortfolioPagePortfolioPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    content: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -587,7 +587,9 @@ export interface ApiPortfolioPagePortfolioPage extends Struct.SingleTypeSchema {
       'api::portfolio-page.portfolio-page'
     > &
       Schema.Attribute.Private;
+    projectsContent: Schema.Attribute.Blocks;
     publishedAt: Schema.Attribute.DateTime;
+    uiLabContent: Schema.Attribute.Blocks;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
