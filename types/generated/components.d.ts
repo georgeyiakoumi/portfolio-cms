@@ -40,6 +40,7 @@ export interface NavlinkNavLink extends Struct.ComponentSchema {
     displayName: 'NavLink';
   };
   attributes: {
+    iconName: Schema.Attribute.String;
     isHomepage: Schema.Attribute.Boolean;
     label: Schema.Attribute.String;
     url: Schema.Attribute.String;
